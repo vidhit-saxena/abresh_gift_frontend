@@ -25,6 +25,7 @@ class WishlistScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Wishlist'),
+        backgroundColor: Colors.blueAccent,
       ),
       body: wishlistItems.isEmpty
           ? Center(child: Text('No items in your wishlist'))

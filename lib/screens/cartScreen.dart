@@ -1,3 +1,4 @@
+import 'package:abresh_gift_frontend/screens/checkoutScreen.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatefulWidget {
@@ -65,6 +66,7 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('My Cart'),
+        backgroundColor: Colors.blueAccent,
       ),
       body: cartItems.isEmpty
           ? Center(
@@ -123,6 +125,11 @@ class _CartScreenState extends State<CartScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         // Handle checkout functionality here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CheckoutScreen()),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 15),

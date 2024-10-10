@@ -39,73 +39,98 @@ List<Subcategory> kidsSubcategories = [
   Subcategory(name: 'Toys', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids%27+Toys'),
 ];
 
+List<Subcategory> homeSubcategories = [
+  Subcategory(name: 'Appliances', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Appliences'),
+  Subcategory(name: 'Kitchen', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Kitchen'),
+  Subcategory(name: 'Tools', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Tools')
+];
+
 List<Category> categories = [
   Category(name: 'Men', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men', subcategories: menSubcategories),
   Category(name: 'Women', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women', subcategories: womenSubcategories),
   Category(name: 'Kids', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids', subcategories: kidsSubcategories),
-  // Category(name: 'Home', imageUrl: 'https://via.placeholder.com/150x200.png?text=Home', subcategories: kidsSubcategories),
+  Category(name: 'Home', imageUrl: 'https://via.placeholder.com/150x200.png?text=Home', subcategories: homeSubcategories),
 ];
 
 class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Get the height of the screen
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Categories'),
-        backgroundColor: Colors.blueAccent, // Customize the app bar color
+        backgroundColor: Colors.blueAccent,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        titleTextStyle: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          // fontWeight: FontWeight.bold,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
           itemCount: categories.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // Number of categories per row
+            crossAxisCount: 1, // One category per row
             crossAxisSpacing: 10, // Space between grid items horizontally
             mainAxisSpacing: 10, // Space between grid items vertically
-            childAspectRatio: 0.7, // Adjusted aspect ratio for a more appealing look
+            childAspectRatio: 2.5, // Adjusted aspect ratio to make the items taller
           ),
           itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                // Navigate to subcategory screen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SubcategoryScreen(
-                      subcategories: categories[index].subcategories,
-                      categoryName: categories[index].name,
+            return Container(
+              height: (screenHeight - kToolbarHeight) / 3, // Each category takes 1/3 of the screen height
+              child: GestureDetector(
+                onTap: () {
+                  // Navigate to subcategory screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SubcategoryScreen(
+                        subcategories: categories[index].subcategories,
+                        categoryName: categories[index].name,
+                      ),
                     ),
+                  );
+                },
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
-                );
-              },
-              child: Card(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.network(
-                          categories[index].imageUrl,
-                          fit: BoxFit.cover,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.network(
+                            categories[index].imageUrl,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        categories[index].name,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.black87,
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Text(
+                            categories[index].name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             );
@@ -115,6 +140,77 @@ class CategoriesScreen extends StatelessWidget {
     );
   }
 }
+
+
+// class CategoriesScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Categories'),
+//         backgroundColor: Colors.blueAccent, // Customize the app bar color
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(8.0),
+//         child: GridView.builder(
+//           itemCount: categories.length,
+//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 1, // Number of categories per row
+//             crossAxisSpacing: 10, // Space between grid items horizontally
+//             mainAxisSpacing: 10, // Space between grid items vertically
+//             childAspectRatio: 3.5, // Adjusted aspect ratio for a more appealing look
+//           ),
+//           itemBuilder: (context, index) {
+//             return GestureDetector(
+//               onTap: () {
+//                 // Navigate to subcategory screen
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(
+//                     builder: (context) => SubcategoryScreen(
+//                       subcategories: categories[index].subcategories,
+//                       categoryName: categories[index].name,
+//                     ),
+//                   ),
+//                 );
+//               },
+//               child: Card(
+//                 elevation: 4,
+//                 shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.circular(15),
+//                 ),
+//                 child: Column(
+//                   children: [
+//                     Expanded(
+//                       child: ClipRRect(
+//                         borderRadius: BorderRadius.circular(15),
+//                         child: Image.network(
+//                           categories[index].imageUrl,
+//                           fit: BoxFit.cover,
+//                         ),
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: const EdgeInsets.all(8.0),
+//                       child: Text(
+//                         categories[index].name,
+//                         style: TextStyle(
+//                           fontWeight: FontWeight.bold,
+//                           fontSize: 18,
+//                           color: Colors.black87,
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             );
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class SubcategoryScreen extends StatelessWidget {
   final List<Subcategory> subcategories;
