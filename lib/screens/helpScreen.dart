@@ -7,7 +7,7 @@ class HelpScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Help & Support"),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
         padding: EdgeInsets.all(16),
@@ -91,7 +91,7 @@ class HelpScreen extends StatelessWidget {
       required IconData icon,
       required Function() onTap}) {
     return ListTile(
-      leading: Icon(icon, color: Colors.pinkAccent),
+      leading: Icon(icon, color: Colors.blueAccent),
       title: Text(title),
       trailing: Icon(Icons.arrow_forward_ios),
       onTap: onTap,
@@ -117,7 +117,7 @@ class FAQScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("FAQs"),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.blueAccent,
       ),
       body: ListView.builder(
         itemCount: faqs.length,
@@ -146,7 +146,7 @@ class ContactUsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Contact Us"),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -154,7 +154,7 @@ class ContactUsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              leading: Icon(Icons.phone, color: Colors.pinkAccent),
+              leading: Icon(Icons.phone, color: Colors.blueAccent),
               title: Text("Call Us"),
               subtitle: Text(phone),
               onTap: () {
@@ -162,7 +162,7 @@ class ContactUsScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.email, color: Colors.pinkAccent),
+              leading: Icon(Icons.email, color: Colors.blueAccent),
               title: Text("Email Us"),
               subtitle: Text(email),
               onTap: () {
@@ -182,7 +182,7 @@ class OrderIssuesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Order Related Issues"),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
         padding: EdgeInsets.all(16),
@@ -227,7 +227,7 @@ class PaymentIssuesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Payments"),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
         padding: EdgeInsets.all(16),
@@ -271,7 +271,7 @@ class ReturnsRefundsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Returns & Refunds"),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
         padding: EdgeInsets.all(16),

@@ -178,7 +178,7 @@ class HomeContent extends StatelessWidget {
                 children: [
                   CategoryTile('Men', Icons.male),
                   CategoryTile('Women', Icons.female),
-                  CategoryTile('Child', Icons.child_care),
+                  CategoryTile('Kids', Icons.child_care),
                   CategoryTile('Home', Icons.home),
                   CategoryTile('Appliance', Icons.kitchen),
                   CategoryTile('Electronics', Icons.electrical_services),
@@ -286,6 +286,8 @@ class ScrollableProductSection extends StatelessWidget {
                 ProductTile(),
                 ProductTile(),
                 ProductTile(),
+                ProductTile(),
+                ProductTile(),
               ],
             ),
           ),
@@ -348,7 +350,7 @@ class ProductTile extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      '\$ 99.99',
+                      '\Rs 99.99',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
