@@ -18,39 +18,73 @@ class Subcategory {
 }
 
 // Sample subcategories data for each category
+// List<Subcategory> menSubcategories = [
+//   Subcategory(name: 'Footwear', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Footwear'),
+//   Subcategory(name: 'Clothing', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Clothing'),
+//   Subcategory(name: 'Watches', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Watches'),
+//   Subcategory(name: 'Accessories', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Accessories'),
+// ];
 List<Subcategory> menSubcategories = [
-  Subcategory(name: 'Footwear', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Footwear'),
-  Subcategory(name: 'Clothing', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Clothing'),
-  Subcategory(name: 'Watches', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Watches'),
-  Subcategory(name: 'Accessories', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men%27s+Accessories'),
+  Subcategory(name: 'Footwear', imageUrl: 'assets/images/mens_footwear.jpg'),
+  Subcategory(name: 'Clothing', imageUrl: 'assets/images/mens_clothing.jpg'),
+  Subcategory(name: 'Watches', imageUrl: 'assets/images/mens_watches.jpg'),
+  Subcategory(name: 'Accessories', imageUrl: 'assets/images/mens_accessories.jpg'),
 ];
 
+
+// List<Subcategory> womenSubcategories = [
+//   Subcategory(name: 'Footwear', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Footwear'),
+//   Subcategory(name: 'Clothing', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Clothing'),
+//   Subcategory(name: 'Watches', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Watches'),
+//   Subcategory(name: 'Accessories', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Accessories'),
+//   Subcategory(name: 'Bags', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Bags'),
+// ];
 List<Subcategory> womenSubcategories = [
-  Subcategory(name: 'Footwear', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Footwear'),
-  Subcategory(name: 'Clothing', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Clothing'),
-  Subcategory(name: 'Watches', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Watches'),
-  Subcategory(name: 'Accessories', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Accessories'),
-  Subcategory(name: 'Bags', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women%27s+Bags'),
+  Subcategory(name: 'Footwear', imageUrl: 'assets/images/womens_footwear.jpg'),
+  Subcategory(name: 'Clothing', imageUrl: 'assets/images/womens_clothing.jpg'),
+  Subcategory(name: 'Watches', imageUrl: 'assets/images/womens_watches.jpg'),
+  Subcategory(name: 'Accessories', imageUrl: 'assets/images/womens_accessories.jpg'),
+  Subcategory(name: 'Bags', imageUrl: 'assets/images/womens_bags.jpg'),
 ];
 
+
+// List<Subcategory> kidsSubcategories = [
+//   Subcategory(name: 'Footwear', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids%27+Footwear'),
+//   Subcategory(name: 'Clothing', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids%27+Clothing'),
+//   Subcategory(name: 'Toys', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids%27+Toys'),
+// ];
 List<Subcategory> kidsSubcategories = [
-  Subcategory(name: 'Footwear', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids%27+Footwear'),
-  Subcategory(name: 'Clothing', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids%27+Clothing'),
-  Subcategory(name: 'Toys', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids%27+Toys'),
+  Subcategory(name: 'Footwear', imageUrl: 'assets/images/kids_footwear.jpg'),
+  Subcategory(name: 'Clothing', imageUrl: 'assets/images/kids_clothing.jpg'),
+  Subcategory(name: 'Toys', imageUrl: 'assets/images/kids_toys.jpg'),
 ];
 
+
+// List<Subcategory> homeSubcategories = [
+//   Subcategory(name: 'Appliances', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Appliences'),
+//   Subcategory(name: 'Kitchen', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Kitchen'),
+//   Subcategory(name: 'Tools', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Tools')
+// ];
 List<Subcategory> homeSubcategories = [
-  Subcategory(name: 'Appliances', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Appliences'),
-  Subcategory(name: 'Kitchen', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Kitchen'),
-  Subcategory(name: 'Tools', imageUrl: 'https://via.placeholder.com/150x200.png?text=home%27+Tools')
+  Subcategory(name: 'Appliances', imageUrl: 'assets/images/home_appliances.jpg'),
+  Subcategory(name: 'Kitchen', imageUrl: 'assets/images/home_kitchen.jpg'),
+  Subcategory(name: 'Tools', imageUrl: 'assets/images/home_tools.jpg'),
 ];
 
+
+// List<Category> categories = [
+//   Category(name: 'Men', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men', subcategories: menSubcategories),
+//   Category(name: 'Women', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women', subcategories: womenSubcategories),
+//   Category(name: 'Kids', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids', subcategories: kidsSubcategories),
+//   Category(name: 'Home', imageUrl: 'https://via.placeholder.com/150x200.png?text=Home', subcategories: homeSubcategories),
+// ];
 List<Category> categories = [
-  Category(name: 'Men', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men', subcategories: menSubcategories),
-  Category(name: 'Women', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women', subcategories: womenSubcategories),
-  Category(name: 'Kids', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids', subcategories: kidsSubcategories),
-  Category(name: 'Home', imageUrl: 'https://via.placeholder.com/150x200.png?text=Home', subcategories: homeSubcategories),
+  Category(name: 'Men', imageUrl: 'assets/images/men_category.jpg', subcategories: menSubcategories),
+  Category(name: 'Women', imageUrl: 'assets/images/women_category.jpg', subcategories: womenSubcategories),
+  Category(name: 'Kids', imageUrl: 'assets/images/kids_category.jpg', subcategories: kidsSubcategories),
+  Category(name: 'Home', imageUrl: 'assets/images/home_category.jpg', subcategories: homeSubcategories),
 ];
+
 
 class CategoriesScreen extends StatelessWidget {
   @override
@@ -78,7 +112,7 @@ class CategoriesScreen extends StatelessWidget {
             crossAxisCount: 1, // One category per row
             crossAxisSpacing: 10, // Space between grid items horizontally
             mainAxisSpacing: 10, // Space between grid items vertically
-            childAspectRatio: 2.5, // Adjusted aspect ratio to make the items taller
+            childAspectRatio: 2.3, // Adjusted aspect ratio to make the items taller
           ),
           itemBuilder: (context, index) {
             return Container(
@@ -107,7 +141,7 @@ class CategoriesScreen extends StatelessWidget {
                         flex: 3,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
+                          child: Image.asset(
                             categories[index].imageUrl,
                             fit: BoxFit.cover,
                             width: double.infinity,
@@ -258,7 +292,7 @@ class SubcategoryScreen extends StatelessWidget {
                     Expanded(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.network(
+                        child: Image.asset(
                           subcategories[index].imageUrl,
                           fit: BoxFit.cover,
                         ),
