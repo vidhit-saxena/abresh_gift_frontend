@@ -24,11 +24,11 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifications'),
+        title: const Text('Notifications'),
         backgroundColor: Colors.blueAccent,
       ),
       body: notifications.isEmpty
-          ? Center(
+          ? const Center(
               child: Text(
                 'No notifications available',
                 style: TextStyle(fontSize: 18, color: Colors.grey),
@@ -67,17 +67,17 @@ class NotificationTile extends StatelessWidget {
         child: ListTile(
           title: Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 message,
                 style: TextStyle(fontSize: 14, color: Colors.grey[600]),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 date,
                 style: TextStyle(fontSize: 12, color: Colors.grey[500]),

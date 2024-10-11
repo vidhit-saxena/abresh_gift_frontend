@@ -5,13 +5,13 @@ class CheckoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Checkout',
           style: TextStyle(color: Colors.black, fontSize: 18),
         ),
         backgroundColor: Colors.blueAccent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -23,21 +23,21 @@ class CheckoutScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Delivery Address',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                    child: const Padding(
+                      padding: EdgeInsets.all(16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -55,12 +55,12 @@ class CheckoutScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
                       // Navigate to change address screen
                     },
-                    child: Text(
+                    child: const Text(
                       'Change or Add Address',
                       style: TextStyle(color: Colors.blue),
                     ),
@@ -69,7 +69,7 @@ class CheckoutScreen extends StatelessWidget {
               ),
             ),
 
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
 
             // Order Summary Section
             Padding(
@@ -77,14 +77,14 @@ class CheckoutScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Order Summary',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
@@ -99,9 +99,9 @@ class CheckoutScreen extends StatelessWidget {
                             width: 50,
                             height: 50,
                           ),
-                          title: Text('Product Name'),
-                          subtitle: Text('1 Item'),
-                          trailing: Text('\Rs 499'),
+                          title: const Text('Product Name'),
+                          subtitle: const Text('1 Item'),
+                          trailing: const Text('\Rs 499'),
                         ),
                         ListTile(
                           leading: Image.network(
@@ -110,9 +110,9 @@ class CheckoutScreen extends StatelessWidget {
                             width: 50,
                             height: 50,
                           ),
-                          title: Text('Product Name 2'),
-                          subtitle: Text('2 Items'),
-                          trailing: Text('\Rs 899'),
+                          title: const Text('Product Name 2'),
+                          subtitle: const Text('2 Items'),
+                          trailing: const Text('\Rs 899'),
                         ),
                       ],
                     ),
@@ -121,7 +121,7 @@ class CheckoutScreen extends StatelessWidget {
               ),
             ),
 
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
 
             // Payment Method Section
             Padding(
@@ -129,14 +129,14 @@ class CheckoutScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Payment Method',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
@@ -145,27 +145,27 @@ class CheckoutScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         ListTile(
-                          leading: Icon(Icons.credit_card),
-                          title: Text('Credit/Debit Card'),
-                          trailing: Icon(Icons.arrow_forward_ios),
+                          leading: const Icon(Icons.credit_card),
+                          title: const Text('Credit/Debit Card'),
+                          trailing: const Icon(Icons.arrow_forward_ios),
                           onTap: () {
                             // Navigate to payment options screen
                           },
                         ),
-                        Divider(),
+                        const Divider(),
                         ListTile(
-                          leading: Icon(Icons.account_balance_wallet),
-                          title: Text('Wallets'),
-                          trailing: Icon(Icons.arrow_forward_ios),
+                          leading: const Icon(Icons.account_balance_wallet),
+                          title: const Text('Wallets'),
+                          trailing: const Icon(Icons.arrow_forward_ios),
                           onTap: () {
                             // Navigate to wallets screen
                           },
                         ),
-                        Divider(),
+                        const Divider(),
                         ListTile(
-                          leading: Icon(Icons.money),
-                          title: Text('Cash on Delivery'),
-                          trailing: Icon(Icons.arrow_forward_ios),
+                          leading: const Icon(Icons.money),
+                          title: const Text('Cash on Delivery'),
+                          trailing: const Icon(Icons.arrow_forward_ios),
                           onTap: () {
                             // Select Cash on Delivery
                           },
@@ -177,7 +177,7 @@ class CheckoutScreen extends StatelessWidget {
               ),
             ),
 
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
 
             // Price Details Section
             Padding(
@@ -185,14 +185,14 @@ class CheckoutScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Price Details',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
@@ -205,7 +205,7 @@ class CheckoutScreen extends StatelessWidget {
                           _buildPriceDetailRow('Subtotal', '\Rs 1398'),
                           _buildPriceDetailRow('Delivery', '\Rs 50'),
                           _buildPriceDetailRow('Discount', '-\Rs 100'),
-                          Divider(),
+                          const Divider(),
                           _buildPriceDetailRow(
                             'Total',
                             '\Rs 1348',
@@ -224,17 +224,17 @@ class CheckoutScreen extends StatelessWidget {
 
       // Bottom Bar with Place Order Button
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         color: Colors.white,
         child: ElevatedButton(
           onPressed: () {
             // Trigger place order functionality
           },
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 15),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             backgroundColor: Colors.blue,
           ),
-          child: Text(
+          child: const Text(
             'Place Order',
             style: TextStyle(fontSize: 18, color: Colors.white),
           ),

@@ -6,11 +6,11 @@ class HelpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Help & Support"),
+        title: const Text("Help & Support"),
         backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           _buildHelpCategory(
             context,
@@ -93,7 +93,7 @@ class HelpScreen extends StatelessWidget {
     return ListTile(
       leading: Icon(icon, color: Colors.blueAccent),
       title: Text(title),
-      trailing: Icon(Icons.arrow_forward_ios),
+      trailing: const Icon(Icons.arrow_forward_ios),
       onTap: onTap,
     );
   }
@@ -116,7 +116,7 @@ class FAQScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("FAQs"),
+        title: const Text("FAQs"),
         backgroundColor: Colors.blueAccent,
       ),
       body: ListView.builder(
@@ -145,7 +145,7 @@ class ContactUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Contact Us"),
+        title: const Text("Contact Us"),
         backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
@@ -154,16 +154,16 @@ class ContactUsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              leading: Icon(Icons.phone, color: Colors.blueAccent),
-              title: Text("Call Us"),
+              leading: const Icon(Icons.phone, color: Colors.blueAccent),
+              title: const Text("Call Us"),
               subtitle: Text(phone),
               onTap: () {
                 launch("tel:$phone");
               },
             ),
             ListTile(
-              leading: Icon(Icons.email, color: Colors.blueAccent),
-              title: Text("Email Us"),
+              leading: const Icon(Icons.email, color: Colors.blueAccent),
+              title: const Text("Email Us"),
               subtitle: Text(email),
               onTap: () {
                 launch("mailto:$email");
@@ -181,11 +181,11 @@ class OrderIssuesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Order Related Issues"),
+        title: const Text("Order Related Issues"),
         backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           _buildIssueCategory(
             context,
@@ -213,7 +213,7 @@ class OrderIssuesScreen extends StatelessWidget {
     return ListTile(
       title: Text(title),
       subtitle: Text(description),
-      trailing: Icon(Icons.arrow_forward_ios),
+      trailing: const Icon(Icons.arrow_forward_ios),
       onTap: () {
         // You can add further details or navigation
       },
@@ -226,11 +226,11 @@ class PaymentIssuesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Payments"),
+        title: const Text("Payments"),
         backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           _buildIssueCategory(
             context,
@@ -257,7 +257,7 @@ class PaymentIssuesScreen extends StatelessWidget {
     return ListTile(
       title: Text(title),
       subtitle: Text(description),
-      trailing: Icon(Icons.arrow_forward_ios),
+      trailing: const Icon(Icons.arrow_forward_ios),
       onTap: () {
         // You can add further details or navigation
       },
@@ -270,11 +270,11 @@ class ReturnsRefundsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Returns & Refunds"),
+        title: const Text("Returns & Refunds"),
         backgroundColor: Colors.blueAccent,
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           _buildIssueCategory(
             context,
@@ -301,7 +301,7 @@ class ReturnsRefundsScreen extends StatelessWidget {
     return ListTile(
       title: Text(title),
       subtitle: Text(description),
-      trailing: Icon(Icons.arrow_forward_ios),
+      trailing: const Icon(Icons.arrow_forward_ios),
       onTap: () {
         // You can add further details or navigation
       },

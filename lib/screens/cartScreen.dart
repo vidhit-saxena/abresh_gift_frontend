@@ -65,11 +65,11 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Cart'),
+        title: const Text('My Cart'),
         backgroundColor: Colors.blueAccent,
       ),
       body: cartItems.isEmpty
-          ? Center(
+          ? const Center(
               child: Text(
                 'Your cart is empty',
                 style: TextStyle(fontSize: 18, color: Colors.grey),
@@ -99,7 +99,7 @@ class _CartScreenState extends State<CartScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Total:',
                         style: TextStyle(
                           fontSize: 18,
@@ -108,7 +108,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       Text(
                         '\Rs ${_calculateTotalPrice().toStringAsFixed(2)}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.green,
@@ -132,10 +132,10 @@ class _CartScreenState extends State<CartScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
                         backgroundColor: Colors.pink, // Meesho-like color
                       ),
-                      child: Text(
+                      child: const Text(
                         'Proceed to Checkout',
                         style: TextStyle(fontSize: 18),
                       ),
@@ -170,36 +170,36 @@ class CartItemTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
             Image.network(imageUrl, width: 80, height: 80, fit: BoxFit.cover),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     name,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     '\Rs ${price.toStringAsFixed(2)}',
-                    style: TextStyle(color: Colors.green, fontSize: 16),
+                    style: const TextStyle(color: Colors.green, fontSize: 16),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Row(
                     children: [
                       IconButton(
-                        icon: Icon(Icons.remove_circle_outline),
+                        icon: const Icon(Icons.remove_circle_outline),
                         onPressed: onDecrease,
                       ),
                       Text('$quantity'),
                       IconButton(
-                        icon: Icon(Icons.add_circle_outline),
+                        icon: const Icon(Icons.add_circle_outline),
                         onPressed: onIncrease,
                       ),
                     ],
@@ -208,7 +208,7 @@ class CartItemTile extends StatelessWidget {
               ),
             ),
             IconButton(
-              icon: Icon(Icons.delete_outline, color: Colors.red),
+              icon: const Icon(Icons.delete_outline, color: Colors.red),
               onPressed: onRemove,
             ),
           ],

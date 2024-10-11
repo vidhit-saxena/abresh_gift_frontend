@@ -7,11 +7,11 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Account'),
+        title: const Text('My Account'),
         backgroundColor: Colors.blueAccent,
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications_none),
+            icon: const Icon(Icons.notifications_none),
             onPressed: () {
               // Navigate to the notification screen
               Navigator.push(
@@ -21,7 +21,7 @@ class AccountScreen extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
             onPressed: () {
               // Navigate to the cart screen
               Navigator.push(
@@ -39,16 +39,16 @@ class AccountScreen extends StatelessWidget {
             // Profile Section
             Container(
               color: Colors.white,
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 40,
                     backgroundImage: NetworkImage(
                       'https://via.placeholder.com/150',
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -69,13 +69,30 @@ class AccountScreen extends StatelessWidget {
                         '+91 834 567 8900',
                         style: TextStyle(fontSize: 14, color: Colors.grey[700]),
                       ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '123 Street , Cal, USA',
+                        style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Navigate to Edit Profile screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EditProfileScreen()),
+                          );
+                        },
+                        child: const Text('Edit Profile'),
+                      ),
                     ],
                   )
                 ],
               ),
             ),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             // Orders Section
             SectionTitle(title: 'My Orders'),
@@ -102,7 +119,8 @@ class AccountScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ManageAddressScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => ManageAddressScreen()),
                 );
               },
             ),
@@ -114,19 +132,22 @@ class AccountScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PaymentMethodsScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => PaymentMethodsScreen()),
                 );
               },
             ),
             Divider(height: 1, color: Colors.grey[300]),
             ListTile(
-              leading: const Icon(Icons.account_box_outlined, color: Colors.blueAccent),
+              leading: const Icon(Icons.account_box_outlined,
+                  color: Colors.blueAccent),
               title: const Text('Manage Account'),
               trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ManageAccountScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => ManageAccountScreen()),
                 );
               },
             ),
@@ -158,18 +179,20 @@ class AccountScreen extends StatelessWidget {
               },
             ),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             // Logout Button
             Center(
               child: ElevatedButton(
                 onPressed: () {
                   // Implementing simple logout functionality
-                  Navigator.pop(context); // For now, just pop the current screen
+                  Navigator.pop(
+                      context); // For now, just pop the current screen
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
                 ),
                 child: const Text('Logout', style: TextStyle(fontSize: 16)),
               ),
@@ -193,7 +216,8 @@ class SectionTitle extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Text(
         title,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black54),
+        style: const TextStyle(
+            fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black54),
       ),
     );
   }
@@ -204,8 +228,8 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('My Orders')),
-      body: Center(child: Text('Orders list goes here')),
+      appBar: AppBar(title: const Text('My Orders')),
+      body: const Center(child: Text('Orders list goes here')),
     );
   }
 }
@@ -214,8 +238,8 @@ class ManageAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Manage Addresses')),
-      body: Center(child: Text('Addresses management goes here')),
+      appBar: AppBar(title: const Text('Manage Addresses')),
+      body: const Center(child: Text('Addresses management goes here')),
     );
   }
 }
@@ -224,8 +248,8 @@ class PaymentMethodsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Payment Methods')),
-      body: Center(child: Text('Payment methods management goes here')),
+      appBar: AppBar(title: const Text('Payment Methods')),
+      body: const Center(child: Text('Payment methods management goes here')),
     );
   }
 }
@@ -234,8 +258,8 @@ class ManageAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Manage Account')),
-      body: Center(child: Text('Account management goes here')),
+      appBar: AppBar(title: const Text('Manage Account')),
+      body: const Center(child: Text('Account management goes here')),
     );
   }
 }
@@ -244,8 +268,8 @@ class HelpCenterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Help Center')),
-      body: Center(child: Text('Help and support information goes here')),
+      appBar: AppBar(title: const Text('Help Center')),
+      body: const Center(child: Text('Help and support information goes here')),
     );
   }
 }
@@ -254,198 +278,118 @@ class AboutUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('About Us')),
-      body: Center(child: Text('Information about the company goes here')),
+      appBar: AppBar(title: const Text('About Us')),
+      body: const Center(child: Text('Information about the company goes here')),
     );
   }
 }
 
-
-
-
-
-// import 'package:abresh_gift_frontend/screens/cartScreen.dart';
-// import 'package:abresh_gift_frontend/screens/notificationScreen.dart';
-// import 'package:flutter/material.dart';
-
-// class AccountScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('My Account'),
-//         backgroundColor: Colors.blueAccent,
-//         actions: [
-//           IconButton(
-//             icon: Icon(Icons.notifications_none),
-//             onPressed: () {
-//               // TODO: Navigate to notifications screen
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (context) => NotificationScreen(),
-//                 ),
-//               );
-//             },
-//           ),
-//           IconButton(
-//             icon: Icon(Icons.shopping_cart),
-//             onPressed: () {
-//               // TODO: Navigate to cart screen
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (context) => CartScreen(),
-//                 ),
-//               );
-//             },
-//           ),
-//         ],
-//       ),
-//       body: SingleChildScrollView(
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             // Profile Section
-//             Container(
-//               color: Colors.white,
-//               padding: EdgeInsets.all(16.0),
-//               child: Row(
-//                 children: [
-//                   CircleAvatar(
-//                     radius: 40,
-//                     backgroundImage: NetworkImage(
-//                       'https://via.placeholder.com/150',
-//                     ),
-//                   ),
-//                   SizedBox(width: 20),
-//                   Column(
-//                     crossAxisAlignment: CrossAxisAlignment.start,
-//                     children: [
-//                       const Text(
-//                         'John Doe',
-//                         style: TextStyle(
-//                           fontSize: 18,
-//                           fontWeight: FontWeight.bold,
-//                         ),
-//                       ),
-//                       const SizedBox(height: 8),
-//                       Text(
-//                         'johndoe@gmail.com',
-//                         style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-//                       ),
-//                       const SizedBox(height: 4),
-//                       Text(
-//                         '+91 834 567 8900',
-//                         style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-//                       ),
-//                     ],
-//                   )
-//                 ],
-//               ),
-//             ),
-
-//             SizedBox(height: 10),
-
-//             // Orders Section
-//             SectionTitle(title: 'My Orders'),
-//             ListTile(
-//               leading: const Icon(Icons.shopping_bag, color: Colors.blueAccent),
-//               title: const Text('View Orders'),
-//               trailing: const Icon(Icons.arrow_forward_ios),
-//               onTap: () {
-//                 // TODO: Navigate to order history screen
-//               },
-//             ),
-
-//             Divider(height: 1, color: Colors.grey[300]),
-
-//             // Account Settings
-//             SectionTitle(title: 'Account Settings'),
-//             ListTile(
-//               leading: const Icon(Icons.home, color: Colors.blueAccent),
-//               title: const Text('Manage Addresses'),
-//               trailing: const Icon(Icons.arrow_forward_ios),
-//               onTap: () {
-//                 // TODO: Navigate to manage addresses screen
-//               },
-//             ),
-//             Divider(height: 1, color: Colors.grey[300]),
-//             ListTile(
-//               leading: const Icon(Icons.payment, color: Colors.blueAccent),
-//               title: const Text('Payment Methods'),
-//               trailing: const Icon(Icons.arrow_forward_ios),
-//               onTap: () {
-//                 // TODO: Navigate to payment methods screen
-//               },
-//             ),
-//             Divider(height: 1, color: Colors.grey[300]),
-//             ListTile(
-//               leading: const Icon(Icons.account_box_outlined, color: Colors.blueAccent),
-//               title: const Text('Manage Account'),
-//               trailing: const Icon(Icons.arrow_forward_ios),
-//               onTap: () {
-//                 // TODO: Navigate to payment methods screen
-//               },
-//             ),
-//             Divider(height: 1, color: Colors.grey[300]),
-
-//             // Help Section
-//             SectionTitle(title: 'Help & Support'),
-//             ListTile(
-//               leading: const Icon(Icons.help_outline, color: Colors.blueAccent),
-//               title: const Text('Help Center'),
-//               trailing: const Icon(Icons.arrow_forward_ios),
-//               onTap: () {
-//                 // TODO: Navigate to help center screen
-//               },
-//             ),
-//             Divider(height: 1, color: Colors.grey[300]),
-//             ListTile(
-//               leading: const Icon(Icons.info_outline, color: Colors.blueAccent),
-//               title: const Text('About Us'),
-//               trailing: const Icon(Icons.arrow_forward_ios),
-//               onTap: () {
-//                 // TODO: Navigate to about us screen
-//               },
-//             ),
-
-//             SizedBox(height: 10),
-
-//             // Logout Button
-//             Center(
-//               child: ElevatedButton(
-//                 onPressed: () {
-//                   // TODO: Implement logout functionality
-//                 },
-//                 style: ElevatedButton.styleFrom(
-//                   backgroundColor: Colors.red,
-//                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-//                 ),
-//                 child: const Text('Logout', style: TextStyle(fontSize: 16)),
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// // Section Title Widget
-// class SectionTitle extends StatelessWidget {
-//   final String title;
-
-//   SectionTitle({required this.title});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-//       child: Text(
-//         title,
-//         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black54),
-//       ),
-//     );
-//   }
-// }
+class EditProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Edit Profile'),
+        backgroundColor: Colors.blueAccent,
+        elevation: 0, // Flat AppBar
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Profile Picture
+              const Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage:
+                      NetworkImage('https://via.placeholder.com/150'),
+                ),
+              ),
+              const SizedBox(height: 20),
+              // Name Field
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Name',
+                  labelStyle:
+                      const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                ),
+              ),
+              const SizedBox(height: 16),
+              // Email Field
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  labelStyle:
+                      const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                ),
+              ),
+              const SizedBox(height: 16),
+              // Phone Number Field
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Phone Number',
+                  labelStyle:
+                      const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                ),
+              ),
+              const SizedBox(height: 30),
+              // Address Field
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Address',
+                  labelStyle:
+                      const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                ),
+              ),
+              const SizedBox(height: 30),
+              // Save Button
+              ElevatedButton(
+                onPressed: () {
+                  // Save profile details and navigate back
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.blueAccent,
+                  elevation: 5,
+                ),
+                child: const Text(
+                  'Save Changes',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

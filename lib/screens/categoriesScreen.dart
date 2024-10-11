@@ -60,11 +60,11 @@ class CategoriesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Categories'),
+        title: const Text('Categories',),
         backgroundColor: Colors.blueAccent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
-        titleTextStyle: TextStyle(
+        iconTheme: const IconThemeData(color: Colors.black),
+        titleTextStyle: const TextStyle(
           color: Colors.black,
           fontSize: 20,
           // fontWeight: FontWeight.bold,
@@ -74,7 +74,7 @@ class CategoriesScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
           itemCount: categories.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1, // One category per row
             crossAxisSpacing: 10, // Space between grid items horizontally
             mainAxisSpacing: 10, // Space between grid items vertically
@@ -121,7 +121,7 @@ class CategoriesScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
                             categories[index].name,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 22,
                               color: Colors.black87,
@@ -229,7 +229,7 @@ class SubcategoryScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
           itemCount: subcategories.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, // Number of subcategories per row
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
@@ -268,7 +268,7 @@ class SubcategoryScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         subcategories[index].name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
@@ -311,104 +311,3 @@ class ProductListScreen extends StatelessWidget {
 
 
 
-// import 'package:flutter/material.dart';
-
-// class Category {
-//   final String name;
-//   final String imageUrl;
-
-//   Category({required this.name, required this.imageUrl});
-// }
-
-// // Sample categories data with dummy images
-// List<Category> categories = [
-//   Category(name: 'Men', imageUrl: 'https://via.placeholder.com/150x200.png?text=Men'),
-//   Category(name: 'Women', imageUrl: 'https://via.placeholder.com/150x200.png?text=Women'),
-//   Category(name: 'Kids', imageUrl: 'https://via.placeholder.com/150x200.png?text=Kids'),
-//   Category(name: 'Footwear', imageUrl: 'https://via.placeholder.com/150x200.png?text=Footwear'),
-//   Category(name: 'Accessories', imageUrl: 'https://via.placeholder.com/150x200.png?text=Accessories'),
-//   Category(name: 'Sale', imageUrl: 'https://via.placeholder.com/150x200.png?text=Sale'),
-// ];
-
-// class CategoriesScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Categories'),
-//         backgroundColor: Colors.blue, // Customize the app bar color
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(8.0),
-//         child: GridView.builder(
-//           itemCount: categories.length,
-//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//             crossAxisCount: 2, // Number of categories per row
-//             crossAxisSpacing: 10, // Space between grid items horizontally
-//             mainAxisSpacing: 10, // Space between grid items vertically
-//             childAspectRatio: 3 / 4, // Aspect ratio for each grid item
-//           ),
-//           itemBuilder: (context, index) {
-//             return GestureDetector(
-//               onTap: () {
-//                 // Navigate to category-specific screen
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                     builder: (context) => CategoryDetailScreen(
-//                       category: categories[index],
-//                     ),
-//                   ),
-//                 );
-//               },
-//               child: Card(
-//                 elevation: 4,
-//                 shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10),
-//                 ),
-//                 child: Column(
-//                   children: [
-//                     Expanded(
-//                       child: Image.network(
-//                         categories[index].imageUrl,
-//                         fit: BoxFit.cover,
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding: const EdgeInsets.all(8.0),
-//                       child: Text(
-//                         categories[index].name,
-//                         style: TextStyle(
-//                           fontWeight: FontWeight.bold,
-//                           fontSize: 16,
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             );
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class CategoryDetailScreen extends StatelessWidget {
-//   final Category category;
-
-//   CategoryDetailScreen({required this.category});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(category.name),
-//       ),
-//       body: Center(
-//         child: Text('Display products of ${category.name} here'),
-//       ),
-//     );
-//   }
-// }
