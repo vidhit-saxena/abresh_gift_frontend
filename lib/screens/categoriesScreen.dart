@@ -94,7 +94,7 @@ class CategoriesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Categories',),
+        title: const Text('Categories', style: TextStyle(fontWeight: FontWeight.bold,),),
         backgroundColor: Colors.blueAccent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -176,75 +176,6 @@ class CategoriesScreen extends StatelessWidget {
 }
 
 
-// class CategoriesScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Categories'),
-//         backgroundColor: Colors.blueAccent, // Customize the app bar color
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(8.0),
-//         child: GridView.builder(
-//           itemCount: categories.length,
-//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//             crossAxisCount: 1, // Number of categories per row
-//             crossAxisSpacing: 10, // Space between grid items horizontally
-//             mainAxisSpacing: 10, // Space between grid items vertically
-//             childAspectRatio: 3.5, // Adjusted aspect ratio for a more appealing look
-//           ),
-//           itemBuilder: (context, index) {
-//             return GestureDetector(
-//               onTap: () {
-//                 // Navigate to subcategory screen
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                     builder: (context) => SubcategoryScreen(
-//                       subcategories: categories[index].subcategories,
-//                       categoryName: categories[index].name,
-//                     ),
-//                   ),
-//                 );
-//               },
-//               child: Card(
-//                 elevation: 4,
-//                 shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(15),
-//                 ),
-//                 child: Column(
-//                   children: [
-//                     Expanded(
-//                       child: ClipRRect(
-//                         borderRadius: BorderRadius.circular(15),
-//                         child: Image.network(
-//                           categories[index].imageUrl,
-//                           fit: BoxFit.cover,
-//                         ),
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding: const EdgeInsets.all(8.0),
-//                       child: Text(
-//                         categories[index].name,
-//                         style: TextStyle(
-//                           fontWeight: FontWeight.bold,
-//                           fontSize: 18,
-//                           color: Colors.black87,
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             );
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class SubcategoryScreen extends StatelessWidget {
   final List<Subcategory> subcategories;
@@ -341,6 +272,75 @@ class ProductListScreen extends StatelessWidget {
 
 
 
+// class CategoriesScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Categories'),
+//         backgroundColor: Colors.blueAccent, // Customize the app bar color
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(8.0),
+//         child: GridView.builder(
+//           itemCount: categories.length,
+//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 1, // Number of categories per row
+//             crossAxisSpacing: 10, // Space between grid items horizontally
+//             mainAxisSpacing: 10, // Space between grid items vertically
+//             childAspectRatio: 3.5, // Adjusted aspect ratio for a more appealing look
+//           ),
+//           itemBuilder: (context, index) {
+//             return GestureDetector(
+//               onTap: () {
+//                 // Navigate to subcategory screen
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(
+//                     builder: (context) => SubcategoryScreen(
+//                       subcategories: categories[index].subcategories,
+//                       categoryName: categories[index].name,
+//                     ),
+//                   ),
+//                 );
+//               },
+//               child: Card(
+//                 elevation: 4,
+//                 shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.circular(15),
+//                 ),
+//                 child: Column(
+//                   children: [
+//                     Expanded(
+//                       child: ClipRRect(
+//                         borderRadius: BorderRadius.circular(15),
+//                         child: Image.network(
+//                           categories[index].imageUrl,
+//                           fit: BoxFit.cover,
+//                         ),
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: const EdgeInsets.all(8.0),
+//                       child: Text(
+//                         categories[index].name,
+//                         style: TextStyle(
+//                           fontWeight: FontWeight.bold,
+//                           fontSize: 18,
+//                           color: Colors.black87,
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             );
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 

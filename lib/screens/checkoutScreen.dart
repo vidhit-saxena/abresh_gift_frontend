@@ -7,7 +7,7 @@ class CheckoutScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Checkout',
-          style: TextStyle(color: Colors.black, fontSize: 18),
+          style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold,),
         ),
         backgroundColor: Colors.blueAccent,
         elevation: 0,

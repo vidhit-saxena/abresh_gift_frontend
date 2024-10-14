@@ -7,7 +7,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Account'),
+        title: const Text('My Account', style: TextStyle(fontWeight: FontWeight.bold,),),
         backgroundColor: Colors.blueAccent,
         actions: [
           IconButton(

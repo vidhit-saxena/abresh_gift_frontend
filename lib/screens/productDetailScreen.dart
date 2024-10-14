@@ -1,8 +1,11 @@
-// import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-// import 'package:carousel_slider/carousel_slider.dart';
+// // import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+// // import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:abresh_gift_frontend/screens/wishlistScreen.dart';
 import 'package:abresh_gift_frontend/screens/cartScreen.dart';
+import 'dart:convert';  // for jsonEncode and jsonDecode
+import 'package:http/http.dart' as http;
+
 
 class ProductDetailScreen extends StatefulWidget {
   @override
@@ -38,11 +41,33 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   String _reviewText = '';
   double _rating = 0.0;
 
+  // New variable for storing the product data
+  Map<String, dynamic>? productData;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProductDetails(); // Fetch product data when screen loads
+  }
+
+  // Function to fetch product details from the backend
+  Future<void> fetchProductDetails() async {
+    final response = await http.get(Uri.parse('http://your-backend-url/api/product/123')); // Replace with your API URL
+
+    if (response.statusCode == 200) {
+      setState(() {
+        productData = jsonDecode(response.body); // Parse the product data
+      });
+    } else {
+      throw Exception('Failed to load product details');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Product Detail'),
+        title: const Text('Product Detail', style: TextStyle(fontWeight: FontWeight.bold,),),
         backgroundColor: Colors.blueAccent,
         actions: [
           IconButton(
@@ -224,7 +249,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         backgroundColor: Colors.orange,
                       ),
                       child: const Text(
-                        'Add to Wishlist',
+                        'Add to Cart',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
@@ -240,7 +265,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         backgroundColor: Colors.blue,
                       ),
                       child: const Text(
-                        'Add to Cart',
+                        'Buy Now',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
@@ -497,3 +522,314 @@ class RatingStars extends StatelessWidget {
     );
   }
 }
+
+
+// import 'dart:convert'; // For JSON decoding
+// import 'package:flutter/material.dart';
+// import 'package:abresh_gift_frontend/screens/wishlistScreen.dart';
+// import 'package:abresh_gift_frontend/screens/cartScreen.dart';
+// import 'package:http/http.dart' as http;
+
+// class ProductDetailScreen extends StatefulWidget {
+//   final String productId; // Accept productId as a parameter
+
+//   ProductDetailScreen({required this.productId});
+
+//   @override
+//   _ProductDetailScreenState createState() => _ProductDetailScreenState();
+// }
+
+// class _ProductDetailScreenState extends State<ProductDetailScreen> {
+//   int _currentImageIndex = 0;
+//   String? selectedSize = 'M'; // Initialize to a default size
+//   Map<String, dynamic>? productData; // Product data fetched from API
+//   bool isLoading = true; // Show loading indicator while fetching data
+//   String _reviewText = '';
+//   double _rating = 0.0;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     fetchProductDetails(); // Fetch product details when the screen loads
+//   }
+
+//   Future<void> fetchProductDetails() async {
+//     // final String apiUrl = 'https://example.com/api/products/${widget.productId}';
+//     final String apiUrl = 'https://example.com/api/products';
+
+//     try {
+//       final response = await http.get(Uri.parse(apiUrl));
+//       if (response.statusCode == 200) {
+//         setState(() {
+//           productData = json.decode(response.body); // Decode the JSON response
+//           isLoading = false; // Data is loaded
+//         });
+//       } else {
+//         // Handle server error
+//         print('Error: Failed to load product details');
+//       }
+//     } catch (error) {
+//       // Handle any other error (e.g., network issues)
+//       print('Error: $error');
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text(
+//           'Product Detail',
+//           style: TextStyle(
+//             fontWeight: FontWeight.bold,
+//           ),
+//         ),
+//         backgroundColor: Colors.blueAccent,
+//         actions: [
+//           IconButton(
+//             icon: const Icon(Icons.favorite_border),
+//             onPressed: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(
+//                   builder: (context) => WishlistScreen(),
+//                 ),
+//               );
+//             },
+//           ),
+//           IconButton(
+//             icon: const Icon(Icons.shopping_cart),
+//             onPressed: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(
+//                   builder: (context) => CartScreen(),
+//                 ),
+//               );
+//             },
+//           ),
+//         ],
+//       ),
+//       body: isLoading
+//           ? const Center(child: CircularProgressIndicator()) // Show loading indicator
+//           : SingleChildScrollView(
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   // Image Slider
+//                   Container(
+//                     height: 300,
+//                     child: PageView.builder(
+//                       itemCount: productData?['images']?.length ?? 0,
+//                       onPageChanged: (index) {
+//                         setState(() {
+//                           _currentImageIndex = index;
+//                         });
+//                       },
+//                       itemBuilder: (context, index) {
+//                         return Image.network(
+//                           productData?['images'][index] ?? '',
+//                           fit: BoxFit.cover,
+//                           width: MediaQuery.of(context).size.width,
+//                         );
+//                       },
+//                     ),
+//                   ),
+//                   Row(
+//                     mainAxisAlignment: MainAxisAlignment.center,
+//                     children: (productData?['images'] ?? []).map<Widget>((url) {
+//                       int index = productData?['images'].indexOf(url) ?? 0;
+//                       return Container(
+//                         width: 8.0,
+//                         height: 8.0,
+//                         margin: const EdgeInsets.symmetric(
+//                             vertical: 10.0, horizontal: 2.0),
+//                         decoration: BoxDecoration(
+//                           shape: BoxShape.circle,
+//                           color: _currentImageIndex == index
+//                               ? Colors.blueAccent
+//                               : Colors.grey,
+//                         ),
+//                       );
+//                     }).toList(),
+//                   ),
+
+//                   // Product Title, Price, and Rating
+//                   Padding(
+//                     padding: const EdgeInsets.all(16.0),
+//                     child: Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         Text(
+//                           productData?['name'] ?? 'Product Name',
+//                           style: const TextStyle(
+//                             fontSize: 24,
+//                             fontWeight: FontWeight.bold,
+//                           ),
+//                         ),
+//                         const SizedBox(height: 8),
+//                         Row(
+//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                           children: [
+//                             Text(
+//                               '₹${productData?['price'] ?? '0.0'}',
+//                               style: const TextStyle(
+//                                 fontSize: 22,
+//                                 fontWeight: FontWeight.bold,
+//                                 color: Colors.green,
+//                               ),
+//                             ),
+//                             Row(
+//                               children: [
+//                                 RatingStars(
+//                                   rating: double.parse(
+//                                       productData?['rating']?.toString() ?? '0'),
+//                                 ),
+//                                 const SizedBox(width: 5),
+//                                 Text(
+//                                   productData?['rating']?.toString() ?? '0',
+//                                   style: const TextStyle(fontSize: 16),
+//                                 ),
+//                               ],
+//                             ),
+//                           ],
+//                         ),
+//                         const SizedBox(height: 8),
+//                         Text(
+//                           'Inclusive of all taxes',
+//                           style:
+//                               TextStyle(fontSize: 14, color: Colors.grey[600]),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+
+//                   // Product Description Section
+//                   Padding(
+//                     padding: const EdgeInsets.all(16.0),
+//                     child: Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         const Text(
+//                           'Product Description',
+//                           style: TextStyle(
+//                             fontSize: 18,
+//                             fontWeight: FontWeight.bold,
+//                           ),
+//                         ),
+//                         const SizedBox(height: 8),
+//                         Text(
+//                           productData?['description'] ??
+//                               'No description available',
+//                           style:
+//                               TextStyle(fontSize: 16, color: Colors.grey[800]),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+
+//                   // Add to Cart and Buy Now buttons
+//                   Padding(
+//                     padding: const EdgeInsets.all(16.0),
+//                     child: Row(
+//                       children: [
+//                         Expanded(
+//                           child: ElevatedButton(
+//                             onPressed: () {
+//                               // Add to wishlist logic
+//                             },
+//                             style: ElevatedButton.styleFrom(
+//                               padding:
+//                                   const EdgeInsets.symmetric(vertical: 15),
+//                               backgroundColor: Colors.orange,
+//                             ),
+//                             child: const Text(
+//                               'Add to Wishlist',
+//                               style: TextStyle(fontSize: 16),
+//                             ),
+//                           ),
+//                         ),
+//                         const SizedBox(width: 10),
+//                         Expanded(
+//                           child: ElevatedButton(
+//                             onPressed: () {
+//                               // Add to cart logic
+//                             },
+//                             style: ElevatedButton.styleFrom(
+//                               padding:
+//                                   const EdgeInsets.symmetric(vertical: 15),
+//                               backgroundColor: Colors.blue,
+//                             ),
+//                             child: const Text(
+//                               'Add to Cart',
+//                               style: TextStyle(fontSize: 16),
+//                             ),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+
+//                   // Customer Reviews Section
+//                   const Padding(
+//                     padding: EdgeInsets.all(16.0),
+//                     child: Text(
+//                       'Customer Reviews',
+//                       style:
+//                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
+//                     child: Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: (productData?['reviews'] ?? [])
+//                           .map<Widget>((review) {
+//                         return Card(
+//                           margin: const EdgeInsets.symmetric(vertical: 5),
+//                           child: Padding(
+//                             padding: const EdgeInsets.all(10.0),
+//                             child: Column(
+//                               crossAxisAlignment: CrossAxisAlignment.start,
+//                               children: [
+//                                 RatingStars(
+//                                   rating: double.parse(
+//                                       review['rating'].toString() ?? '0'),
+//                                 ),
+//                                 const SizedBox(height: 5),
+//                                 Text(
+//                                   review['text'] ?? 'No review text',
+//                                   style: const TextStyle(fontSize: 16),
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                         );
+//                       }).toList(),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//     );
+//   }
+// }
+
+// class RatingStars extends StatelessWidget {
+//   final double rating; // Rating parameter
+
+//   RatingStars({this.rating = 0.0});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: List.generate(5, (index) {
+//         return Icon(
+//           index < rating ? Icons.star : Icons.star_border,
+//           color: Colors.amber,
+//           size: 18,
+//         );
+//       }),
+//     );
+//   }
+// }
