@@ -1,7 +1,7 @@
-import 'package:abresh_gift_frontend/main.dart';
+// import 'package:abresh_gift_frontend/main.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:abresh_gift_frontend/screens/homeScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class EnhancedSignUpScreen extends StatelessWidget {
   @override
