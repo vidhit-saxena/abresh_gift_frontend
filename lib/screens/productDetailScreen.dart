@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:abresh_gift_frontend/screens/wishlistScreen.dart';
 import 'package:abresh_gift_frontend/screens/cartScreen.dart';
-import 'dart:convert';  // for jsonEncode and jsonDecode
+import 'dart:convert'; // for jsonEncode and jsonDecode
 import 'package:http/http.dart' as http;
-
+import 'package:abresh_gift_frontend/screens/isLoggedIn.dart'; // Import the IsLoggedIn class
 
 class ProductDetailScreen extends StatefulWidget {
   @override
@@ -15,6 +15,9 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int _currentImageIndex = 0;
   String? selectedSize = 'M'; // Initialize to a default size
+  final IsLoggedIn _loginManager =
+      IsLoggedIn(); // Create an instance of the IsLoggedIn class
+
   final List<String> productImages = [
     'https://via.placeholder.com/600x400',
     'https://via.placeholder.com/600x400?image=2',
@@ -52,7 +55,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   // Function to fetch product details from the backend
   Future<void> fetchProductDetails() async {
-    final response = await http.get(Uri.parse('http://your-backend-url/api/product/123')); // Replace with your API URL
+    final response = await http.get(Uri.parse(
+        'http://your-backend-url/api/product/123')); // Replace with your API URL
 
     if (response.statusCode == 200) {
       setState(() {
@@ -63,11 +67,32 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     }
   }
 
+  // Function to handle Add to Cart or Buy Now actions
+  void _handleAction(BuildContext context, String action) async {
+    bool isLoggedIn = await _loginManager.checkLoginStatus();
+    if (isLoggedIn) {
+      // If logged in, proceed with the action
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Item $action!")));
+    } else {
+      // If not logged in, show the login popup
+      _loginManager.showLoginPopup(context, () {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Logged in, item $action!")));
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Product Detail', style: TextStyle(fontWeight: FontWeight.bold,),),
+        title: const Text(
+          'Product Detail',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         backgroundColor: Colors.blueAccent,
         actions: [
           IconButton(
@@ -124,7 +149,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 return Container(
                   width: 8.0,
                   height: 8.0,
-                  margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 2.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: _currentImageIndex == index
@@ -242,7 +268,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        // Add to wishlist logic
+                        // Add to cart logic
+                         _handleAction(context, "added to cart"); // Add to Cart button
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 15),
@@ -259,6 +286,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         // Add to cart logic
+                        _handleAction(context, "bought"); // Buy Now button
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 15),
@@ -336,7 +364,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     });
                   }
                 },
-                child: const Text('Submit Review', style: TextStyle(fontSize: 18,)),
+                child: const Text('Submit Review',
+                    style: TextStyle(
+                      fontSize: 18,
+                    )),
               ),
             ),
 
@@ -421,8 +452,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        padding:
-                            const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 20),
                         backgroundColor: Colors.orangeAccent,
                       ),
                       child: const Text('View', style: TextStyle(fontSize: 14)),
@@ -486,8 +517,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        padding:
-                            const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 20),
                         backgroundColor: Colors.orangeAccent,
                       ),
                       child: const Text('View', style: TextStyle(fontSize: 14)),

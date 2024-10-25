@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "988889338810",
+    "project_id": "e-commerce-test-6b46c",
+    "storage_bucket": "e-commerce-test-6b46c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988889338810:android:cfbb37c8421c802a570383",
+        "android_client_info": {
+          "package_name": "com.example.abresh_gift_frontend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDazh8vwC0hnVwIoWdRSOs_6hO9ZPo_3IU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

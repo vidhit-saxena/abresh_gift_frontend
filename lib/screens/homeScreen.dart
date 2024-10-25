@@ -1,4 +1,4 @@
-import 'package:abresh_gift_frontend/screens/accountScreen.dart';
+import 'package:abresh_gift_frontend/screens/account/accountScreen.dart';
 import 'package:abresh_gift_frontend/screens/cartScreen.dart';
 import 'package:abresh_gift_frontend/screens/categoriesScreen.dart';
 import 'package:abresh_gift_frontend/screens/helpScreen.dart';
@@ -174,7 +174,10 @@ class HomeContent extends StatelessWidget {
                   // CategoryTile('Women', Icons.female),
                   // CategoryTile('Kids', Icons.child_care),
                   // CategoryTile('Home', Icons.home),
-                  CategoryTile('Men', Icons.male, onTap: () {
+                  CategoryTile('Men', 
+                  // Icons.male, 
+                  Image.asset('assets/images/men.png', height: 40, width: 40), // Replace with your image path
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -185,7 +188,10 @@ class HomeContent extends StatelessWidget {
                     );
                   }),
                   const SizedBox(width: 20), // Add spacing between the tiles
-                  CategoryTile('Women', Icons.female, onTap: () {
+                  CategoryTile('Women', 
+                  // Icons.female, 
+                  Image.asset('assets/images/woman.png', height: 40, width: 40),
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -196,7 +202,10 @@ class HomeContent extends StatelessWidget {
                     );
                   }),
                   const SizedBox(width: 20),
-                  CategoryTile('Kids', Icons.child_care, onTap: () {
+                  CategoryTile('Kids', 
+                  Image.asset('assets/images/kids.png', height: 40, width: 40),
+                  // Icons.child_care, 
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -207,7 +216,10 @@ class HomeContent extends StatelessWidget {
                     );
                   }),
                   const SizedBox(width: 20),
-                  CategoryTile('Home', Icons.home, onTap: () {
+                  CategoryTile('Home', 
+                  Image.asset('assets/images/house.png', height: 50, width: 50),
+                  // Icons.home, 
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -311,10 +323,11 @@ class HomeContent extends StatelessWidget {
 
 class CategoryTile extends StatelessWidget {
   final String category;
-  final IconData icon;
+  // final IconData icon;
+  final Widget image;
   final VoidCallback onTap;
 
-  CategoryTile(this.category, this.icon, {required this.onTap});
+  CategoryTile(this.category, this.image, {required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -326,8 +339,9 @@ class CategoryTile extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 30,
-              backgroundColor: Colors.blue[100],
-              child: Icon(icon, color: Colors.blue),
+              backgroundColor: Colors.white,
+              // child: Icon(icon, color: Colors.blue),
+              child: image,
             ),
             const SizedBox(height: 8),
             Text(
